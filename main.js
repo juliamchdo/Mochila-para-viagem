@@ -10,16 +10,16 @@ itens.forEach((elemento) => {
   criaElemento(elemento)
 })
 
-// Refatoração do addEventListener para receber as funções extras da função criaElemento
+// Receber as funções extras da função criaElemento
 form.addEventListener("submit", (evento) => {
-  evento.preventDefault(); //tira o comportamento padrao do evento, neste caso é enviar os dados do form para a url
+  evento.preventDefault(); 
 
   const nome = evento.target.elements['nome']
   const quantidade = evento.target.elements['quantidade']
 
   const existe = itens.find(elemento => elemento.nome === nome.value)
 
-  const itemAtual = { //cria um objeto - grupo de elementos
+  const itemAtual = { 
     "nome": nome.value,
     "quantidade": quantidade.value
   }
@@ -52,7 +52,7 @@ function criaElemento(item){
   const numeroItem = document.createElement('strong')
   numeroItem.innerHTML = item.quantidade
   numeroItem.dataset.id = item.id //adiciona um data-id no elemento
-  novoItem.appendChild(numeroItem) // adidiciona um elemento dentro do outro
+  novoItem.appendChild(numeroItem) 
   
   novoItem.innerHTML += item.nome
 
